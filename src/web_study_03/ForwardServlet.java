@@ -1,6 +1,7 @@
 package web_study_03;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,8 +29,11 @@ public class ForwardServlet extends HttpServlet {
 		
 		if(age <= 19) {
 			response.setContentType("text/html; charset=UTF-8");
-			response.getWriter()
-			.append("<html><head><script type=\"text/javascript\">")
+			PrintWriter out = response.getWriter();
+			
+			out.println("이거는 프린트");
+			out.append("append는 뭔차이삼");
+			out.append("<html><head><script type=\"text/javascript\">")
 			.append("alert(\"19세 미만이므로 입장 불가능\");")
 			.append("history.go(-1);")
 			.append("</script></head><body></body></html>");
